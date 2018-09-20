@@ -35,14 +35,47 @@ bool Game::init(const char* title, int xpos, int ypos,
 
 void Game::render()
 {
-	m_destinationRectangle.x = m_sourceRectangle.x = 0;
+
+    // source => 원본 사각형
+    // destination => 대상 사각형
+    
+    //기본 
+
+	/*m_destinationRectangle.x = m_sourceRectangle.x = 0;
 	m_destinationRectangle.y = m_sourceRectangle.y = 0;
 	m_destinationRectangle.w = m_sourceRectangle.w;
-	m_destinationRectangle.h = m_sourceRectangle.h;
+	m_destinationRectangle.h = m_sourceRectangle.h;*/
+
+    m_destinationRectangle.x = m_sourceRectangle.x = 0;
+    m_destinationRectangle.y = m_sourceRectangle.y = 0;
+
+    m_destinationRectangle.x = 100;
+    m_destinationRectangle.y = 100;
+
+    m_destinationRectangle.w = m_sourceRectangle.w;
+    m_destinationRectangle.h = m_sourceRectangle.h;
+
+
+    //추가문제 
+
+    /*m_destinationRectangle.w = m_sourceRectangle.w;
+    m_destinationRectangle.h = m_sourceRectangle.h;
+
+    m_sourceRectangle.x = 50;
+    m_sourceRectangle.y = 50;
+
+    m_destinationRectangle.x = 100;
+    m_destinationRectangle.y = 100;
+
+
+    m_sourceRectangle.w = 50;
+    m_sourceRectangle.h = 50;*/
+
+ 
 
 	SDL_RenderClear(m_pRenderer);
 	SDL_RenderCopy(m_pRenderer, m_pTexture,
-		&m_sourceRectangle, &m_destinationRectangle);
+       &m_sourceRectangle, NULL/*&m_destinationRectangle*/);
 	SDL_RenderPresent(m_pRenderer);
 }
 
