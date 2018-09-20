@@ -7,7 +7,7 @@ bool Game::init(const char* title, int xpos, int ypos,
 	if (SDL_Init(SDL_INIT_EVERYTHING) >= 0)
 	{
 		m_pWindow = SDL_CreateWindow(title, xpos, ypos,
-			width, height, fullscreen);
+			width, height, /*fullscreen*/SDL_WINDOW_SHOWN);
 
 		if (m_pWindow != 0)
 		{
@@ -49,11 +49,15 @@ void Game::render()
     m_destinationRectangle.x = m_sourceRectangle.x = 0;
     m_destinationRectangle.y = m_sourceRectangle.y = 0;
 
+	//m_sourceRectangle.x = 50;
+	//m_sourceRectangle.y = 50;
+
     m_destinationRectangle.x = 100;
     m_destinationRectangle.y = 100;
 
     m_destinationRectangle.w = m_sourceRectangle.w;
     m_destinationRectangle.h = m_sourceRectangle.h;
+
 
 
     //추가문제 
@@ -75,7 +79,7 @@ void Game::render()
 
 	SDL_RenderClear(m_pRenderer);
 	SDL_RenderCopy(m_pRenderer, m_pTexture,
-       &m_sourceRectangle, NULL/*&m_destinationRectangle*/);
+       &m_sourceRectangle, &m_destinationRectangle);
 	SDL_RenderPresent(m_pRenderer);
 }
 

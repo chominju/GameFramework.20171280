@@ -28,9 +28,9 @@ bool init(const char* title, int xpos,int ypos,int width, int height, int flags)
 
 void render()
 {
-	/*SDL_SetRenderDrawColor(g_pRenderer, 0, 0, 0, 255);
+	SDL_SetRenderDrawColor(g_pRenderer, 0, 0, 0, 255);
 
-	SDL_RenderClear(g_pRenderer);*/
+	SDL_RenderClear(g_pRenderer);
 
 	SDL_SetRenderDrawColor(g_pRenderer, 0, 255, 0, 255);
 
