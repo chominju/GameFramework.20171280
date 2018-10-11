@@ -1,4 +1,5 @@
 #include <iostream>
+#include <SDL.h>
 #include <SDL_image.h>
 #include "game.h"
 
@@ -16,11 +17,14 @@ bool Game::init(const char* title, int xpos, int ypos,
 
 			m_bRunning = true;
 
-			/*SDL_Surface* pTempSurface = SDL_LoadBMP("assets/animate.bmp");
+			//SDL_Surface* pTempSurface = SDL_LoadBMP("assets/animate.bmp");
 
-			SDL_Surface* pTempSurface = IMG_Load("assets/animate.png");*/
+			/*SDL_Surface* pTempSurface = IMG_Load("assets/animate.png");*/
 
 			SDL_Surface* pTempSurface = IMG_Load("assets/animate-alpha.png");
+
+			/*SDL_Surface* pTempSurface = IMG_Load("assets/flower.png");*/
+
 
 			SDL_SetRenderDrawColor(m_pRenderer, 0, 200, 0, 0);
 
@@ -31,10 +35,24 @@ bool Game::init(const char* title, int xpos, int ypos,
 			m_sourceRectangle.w = 128;
 			m_sourceRectangle.h = 82;
 
+			//m_sourceRectangle.w = 480;
+			//m_sourceRectangle.h = 480;
+
+
 			m_destinationRectangle.x = m_sourceRectangle.x = 0;
 			m_destinationRectangle.y = m_sourceRectangle.y = 0;
+			
 			m_destinationRectangle.w = m_sourceRectangle.w;
 			m_destinationRectangle.h = m_sourceRectangle.h;
+
+			m_sourceRectangle2.w = 128;
+			m_sourceRectangle2.h = 82;
+
+			m_destinationRectangle2.x = m_sourceRectangle2.x = 200;
+			m_destinationRectangle2.y = m_sourceRectangle2.y = 0;
+
+			m_destinationRectangle2.w = m_sourceRectangle2.w;
+			m_destinationRectangle2.h = m_sourceRectangle2.h;
 
 			/*	SDL_QueryTexture(m_pTexture, NULL, NULL,
 			&m_sourceRectangle.w, &m_sourceRectangle.h);*/
@@ -51,44 +69,16 @@ bool Game::init(const char* title, int xpos, int ypos,
 
 void Game::render()
 {
-
-	// source => 원본 사각형
-	// destination => 대상 사각형
-
-	//기본 
-
-	//m_destinationRectangle.x = m_sourceRectangle.x = 0;
-	//m_destinationRectangle.y = m_sourceRectangle.y = 0;
-	//m_destinationRectangle.w = m_sourceRectangle.w;
-	//m_destinationRectangle.h = m_sourceRectangle.h;
-
-
-	//추가문제 
-
-	/*m_destinationRectangle.w = m_sourceRectangle.w;
-	m_destinationRectangle.h = m_sourceRectangle.h;
-
-	m_sourceRectangle.x = 50;
-	m_sourceRectangle.y = 50;
-
-	m_destinationRectangle.x = 100;
-	m_destinationRectangle.y = 100;
-
-
-	m_sourceRectangle.w = 50;
-	m_sourceRectangle.h = 50;*/
-
-
-
 	SDL_RenderClear(m_pRenderer);
-	SDL_RenderCopy(m_pRenderer, m_pTexture,
-		&m_sourceRectangle, &m_destinationRectangle);
+	/*SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);*/
+	SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle2, &m_destinationRectangle2);
 	SDL_RenderPresent(m_pRenderer);
 }
 
 void Game::update()
 {
 	m_sourceRectangle.x = 128 * int(((SDL_GetTicks() / 100) % 6));
+	m_sourceRectangle2.x = 128 * int(((SDL_GetTicks() / 400) % 6));
 }
 
 void Game::handleEvents()

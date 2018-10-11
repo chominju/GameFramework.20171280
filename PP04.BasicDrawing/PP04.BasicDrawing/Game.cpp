@@ -52,14 +52,22 @@ void Game::render()
 	//m_sourceRectangle.x = 50;
 	//m_sourceRectangle.y = 50;
 
-    m_destinationRectangle.x = 100;
-    m_destinationRectangle.y = 100;
+m_sourceRectangle.x = 50;
+	m_sourceRectangle.y = 50;
 
-    m_destinationRectangle.w = m_sourceRectangle.w;
-    m_destinationRectangle.h = m_sourceRectangle.h;
+	m_destinationRectangle.x = 50;
+	m_destinationRectangle.y = 50;
 
 
 
+	m_sourceRectangle.w = 30;
+	m_sourceRectangle.h = 30;
+
+
+	m_destinationRectangle.w = m_sourceRectangle.w;
+	m_destinationRectangle.h = m_sourceRectangle.h;
+
+	m_destinationRectangle.w = 100;
     //추가문제 
 
     /*m_destinationRectangle.w = m_sourceRectangle.w;
@@ -79,7 +87,7 @@ void Game::render()
 
 	SDL_RenderClear(m_pRenderer);
 	SDL_RenderCopy(m_pRenderer, m_pTexture,
-       &m_sourceRectangle, &m_destinationRectangle);
+       NULL, &m_destinationRectangle);
 	SDL_RenderPresent(m_pRenderer);
 }
 
