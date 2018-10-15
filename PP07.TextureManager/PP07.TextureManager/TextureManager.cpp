@@ -3,15 +3,6 @@
 #include <SDL_image.h>
 
 
-TextureManager::TextureManager()
-{
-}
-
-
-TextureManager::~TextureManager()
-{
-}
-
 bool TextureManager::load(std::string fileName, std::string id, SDL_Renderer * pRenderer)
 {
 	SDL_Surface * pTempSurface = IMG_Load(fileName.c_str());
@@ -52,7 +43,7 @@ void TextureManager::drawFrame(std::string id, int x, int y, int width, int heig
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
 	srcRect.x = width * currentFrame;
-	srcRect.y = height * (currentFrame - 1);
+	srcRect.y = height * (currentRow - 1);
 	srcRect.w = destRect.w = width;
 	srcRect.h = destRect.h = height;
 	destRect.x = x;
