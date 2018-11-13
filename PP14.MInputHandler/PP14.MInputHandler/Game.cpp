@@ -21,7 +21,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 			m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, 0);
 		}
 		m_bRunning = true; //
-		if (!TheTextureManager::Instance()->load("assets/animate-alpha.png",
+		if (!TheTextureManager::Instance()->load("assets/square.jpg",
 			"animate", m_pRenderer))
 		{
 			return false;
@@ -30,7 +30,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		//SDL_Surface* pTempSurface = SDL_LoadBMP("assets/animate.bmp");
 		//SDL_Surface* pTempSurface = IMG_Load("assets/animate.png");
 		//SDL_Surface* pTempSurface = IMG_Load("assets/animate-alpha.png");
-		m_textureManager.load("assets/animate-alpha.png", "animate", m_pRenderer);
+		m_textureManager.load("assets/square.jpg", "animate", m_pRenderer);
 
 		//m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer,
 		//	pTempSurface);
@@ -136,11 +136,11 @@ void Game::update()
 	////{
 	////	m_destinationRectangle2.x = 100.0f;
 	////}
-	for (std::vector<GameObject*>::size_type i = 0;
+	/*for (std::vector<GameObject*>::size_type i = 0;
 		i != m_gameObjects.size(); i++)
-	{
-		m_gameObjects[i]->update();
-	}
+	{*/
+		m_gameObjects[2]->update();
+	//}
 }
 
 void Game::handleEvents()
