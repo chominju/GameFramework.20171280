@@ -69,7 +69,7 @@ public:
 
 	Vector2D* getObjcetPosition();
 
-	Vector2D* m_objectPosition[];
+	Vector2D*  m_objectPosition;
 
 
 

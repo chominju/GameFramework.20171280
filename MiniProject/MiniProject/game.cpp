@@ -63,31 +63,10 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 			for (int j = 0; j < 10; j++)
 			{
 				m_gameObjects.push_back(new Player(new LoaderParams(j*26, i*26, 26, 26, "animate")));
-				m_objectPosition[k] = new Vector2D(j*26.0f, i*26.0f);
-				k++;
+				m_objectPosition = new Vector2D(j * 26.0f, i * 26.0f);
+
 			}
 		}
-
-		//for (int i = 0; i < 19; i++)
-		//{
-		//	for (int j = 0; j < 19; j++)
-		//	{
-		//		m_gameObjects.push_back(new Enemy(new LoaderParams(j * 26, i * 26, 26, 26, "animate")));
-		//	}
-		//}
-	
-
-		//m_gameObjects.push_back(m_go);
-		//m_gameObjects.push_back(m_player);
-		//m_gameObjects.push_back(m_enemy);
-
-		/*m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82, "animate")));
-		m_gameObjects.push_back(new Enemy(new LoaderParams(300, 300, 128, 82, "animate")));*/
-
-		//SDL_Surface* pTempSurface = SDL_LoadBMP("assets/rider.bmp"); //
-		//m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface); //
-		//SDL_FreeSurface(pTempSurface); //
-		//SDL_QueryTexture(m_pTexture, NULL, NULL, &m_sourceRectangle.w, &m_sourceRectangle.h); //
 	}
 	else
 	{
@@ -139,7 +118,7 @@ std::vector<GameObject*> Game::getGameObject()
 	return m_gameObjects;
 }
 
-Vector2D * Game::getObjcetPosition()
+Vector2D* Game::getObjcetPosition()
 {
-	return *m_objectPosition;
+	return m_objectPosition;
 }

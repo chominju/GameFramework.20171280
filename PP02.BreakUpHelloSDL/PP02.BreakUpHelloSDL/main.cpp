@@ -5,7 +5,7 @@ SDL_Renderer* g_pRenderer = 0;
 
 bool g_bRunning = false;
 
-bool init(const char* title, int xpos,int ypos,int width, int height, int flags)
+bool init(const char* title, int xpos, int ypos, int width, int height, int flags)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) >= 0)
 	{
@@ -60,7 +60,7 @@ void clean()
 
 int main(int argc, char* argv[])
 {
-	if(init("Game Framework", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,1024,768,SDL_WINDOW_SHOWN))
+	if (init("Game Framework", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1024, 768, SDL_WINDOW_SHOWN))
 	{
 		g_bRunning = true;
 	}
