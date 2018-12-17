@@ -1,7 +1,11 @@
 ﻿#include <iostream>
+#include <SDL.h>
+#include <SDL_image.h>
 #include "Player.h"
 #include "SDLGameObject.h"
 #include "InputHandler.h"
+#include "Fire.h"
+#include "Game.h"
 
 //void Player::load(int x, int y, int width, int height,
 //	std::string textureID)
@@ -18,6 +22,13 @@ Player::Player(const LoaderParams* pParams) :SDLGameObject(pParams)
 void Player::draw()
 {
 	SDLGameObject::draw(); // we now use SDLGameObject
+
+	for (std::vector<GameObject*>::size_type i = 0;
+		i != m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->draw(/*m_pRenderer*/);
+	}
+
 }
 
 void Player::update()
@@ -34,6 +45,12 @@ void Player::update()
 	handleInput(); // add our function
 	m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
 	SDLGameObject::update();
+
+	for (std::vector<GameObject*>::size_type i = 0;
+		i != m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->update();
+	}
 
 }
 
@@ -60,12 +77,15 @@ void Player::handleInput()
 	{
 		m_velocity.setY(2);
 	}
+	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_A))
+	{
+		if (TheInputHandler::Instance()->oneFire())
+		{
+			TheInputHandler::Instance()->setFire();
+			/*m_gameObjects.push_back(new Fire(new LoaderParams(m_velocity.getX(), m_velocity.getY(), 32, 32, "fire")));*/
+			/*m_gameObjects.push_back(new Fire());*/
 
-	//if (TheInputHandler::Instance()->getMouseButtonState(LEFT))
-	//{
-	//	m_velocity.setX(1);
-
-	//	Vector2D* vec = TheInputHandler::Instance()->getMousePosition();
-	//	m_velocity = (*vec - m_position) / 100;
-	//}
+			TheGame::Instance()->fireOn();
+		}
+	}
 }

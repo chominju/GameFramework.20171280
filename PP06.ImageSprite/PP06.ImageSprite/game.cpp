@@ -23,14 +23,17 @@ bool Game::init(const char* title, int xpos, int ypos,
 
 			SDL_Surface* pTempSurface = IMG_Load("assets/animate-alpha.png");
 
-			/*SDL_Surface* pTempSurface = IMG_Load("assets/flower.png");*/
+			SDL_Surface* pTempSurface2 = IMG_Load("assets/tree.png");
 
 
-			SDL_SetRenderDrawColor(m_pRenderer, 0, 200, 0, 0);
+			SDL_SetRenderDrawColor(m_pRenderer,255,255, 255, 0);
 
 			m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
 
+			m_pTexture2 = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface2);
+
 			SDL_FreeSurface(pTempSurface);
+			SDL_FreeSurface(pTempSurface2);
 
 			m_sourceRectangle.w = 128;
 			m_sourceRectangle.h = 82;
@@ -54,6 +57,14 @@ bool Game::init(const char* title, int xpos, int ypos,
 			m_destinationRectangle2.w = m_sourceRectangle2.w;
 			m_destinationRectangle2.h = m_sourceRectangle2.h;
 
+			m_destinationRectangle3.x = m_sourceRectangle3.x = 0;
+			m_destinationRectangle3.y = m_sourceRectangle3.y = 0;
+
+			m_sourceRectangle3.w = 640;
+			m_sourceRectangle3.h = 480;
+
+			m_destinationRectangle3.w = m_sourceRectangle3.w;
+			m_destinationRectangle3.h = m_sourceRectangle3.h;
 			/*	SDL_QueryTexture(m_pTexture, NULL, NULL,
 			&m_sourceRectangle.w, &m_sourceRectangle.h);*/
 		}
@@ -70,7 +81,8 @@ bool Game::init(const char* title, int xpos, int ypos,
 void Game::render()
 {
 	SDL_RenderClear(m_pRenderer);
-	/*SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);*/
+	SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);
+	SDL_RenderCopy(m_pRenderer, m_pTexture2, &m_sourceRectangle3, &m_destinationRectangle3);
 	SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle2, &m_destinationRectangle2);
 	SDL_RenderPresent(m_pRenderer);
 }

@@ -28,6 +28,7 @@ public:
 		return s_pInstance;
 	}
 
+	void clearFromTextureMap(std::string id);
 
 
 private:

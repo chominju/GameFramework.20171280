@@ -3,19 +3,22 @@
 #include "SDLGameObject.h"
 #include "LoaderParams.h"
 
-
-class Player : public SDLGameObject
+class Fire /*: public SDLGameObject*/
 
 {
 public:
 	/*void load(int x, int y, int width, int height, std::string textureID);*/
-	Player(const LoaderParams* pParams);
+	Fire(/*const LoaderParams* pParams*/);
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
 
-	bool stop;
-	bool m_bReleased;
+	SDL_Renderer* m_pRenderer;
+	SDL_Texture* m_pTexture;
+
+	SDL_Rect m_sourceRectangle;
+	SDL_Rect m_destinationRectangle;
+
 
 private:
 	void handleInput();

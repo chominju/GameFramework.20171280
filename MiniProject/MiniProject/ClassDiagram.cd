@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Enemy">
+    <Position X="0.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAABAAAAEAAA=</HashCode>
+      <FileName>Enemy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game">
+    <Position X="1.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAABAgAAAAAACAAAiAAAIAQAFhAIAVEgA=</HashCode>
+      <FileName>game.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameObject" Collapsed="true">
+    <Position X="1.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAABAAAIEAAA=</HashCode>
+      <FileName>GameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameState">
+    <Position X="8.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAABAAAAAAAAAAAABAAACUAAA=</HashCode>
+      <FileName>GameState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStateMachine" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEAAAAAAAAAAAAAAAAQAAIAAAAAAAAAAAAAAAAAUAAA=</HashCode>
+      <FileName>GameStateMachine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputHandler">
+    <Position X="13.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAQAAAAAAAAAAAAAAAgAIAAAAAAAABAQAFCAAAFAAI=</HashCode>
+      <FileName>InputHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoaderParams" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAACAABAAAgEAAAQAAAQACAAAAAAGAAAAA=</HashCode>
+      <FileName>LoaderParams.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuState">
+    <Position X="7.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAABAAAAAAAAAAQAFAAACUAAA=</HashCode>
+      <FileName>MenuState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="3" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAABAAQAEAAA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayState">
+    <Position X="10.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAABAAAAAAAAAAQAFAAACUAAA=</HashCode>
+      <FileName>PlayState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDLGameObject" Collapsed="true">
+    <Position X="1.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAABgAKgAAAAAAAAAASAAABAAAAFABA=</HashCode>
+      <FileName>SDLGameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextureManager" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAEAABAIAAAAABAAAAAAAQAEAIAAAAAA=</HashCode>
+      <FileName>TextureManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vector2D" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQEAAAAEAGAQAAQAAAAAAAAAAgAGAAAAA=</HashCode>
+      <FileName>Vector2D.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Typedef Name="TheGame" Collapsed="true">
+    <Position X="1.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>game.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="TheInputHandler" Collapsed="true">
+    <Position X="13" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InputHandler.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="TheTextureManager" Collapsed="true">
+    <Position X="6.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TextureManager.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="mouse_buttons">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAABAgAAAAAAAAAAA=</HashCode>
+      <FileName>InputHandler.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

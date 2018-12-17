@@ -1,18 +1,19 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include "Player.h"
 #include "SDLGameObject.h"
 #include "InputHandler.h"
+#include "MenuButton.h"
 
 //void Player::load(int x, int y, int width, int height,
 //	std::string textureID)
 //{
 //	GameObject::load(x, y, width, height, textureID);
-//	// ì´ ì½”ë“œê°€ ì˜ë¯¸ê°€ ìžˆì„ê¹Œ? ì´ì½”ë“œê°€ ì—†ì—ˆë‹¤ë©´, ìžë™ìœ¼ë¡œ ë¶€ëª¨ í˜¸ì¶œ?? 
+//	// ÀÌ ÄÚµå°¡ ÀÇ¹Ì°¡ ÀÖÀ»±î? ÀÌÄÚµå°¡ ¾ø¾ú´Ù¸é, ÀÚµ¿À¸·Î ºÎ¸ð È£Ãâ?? 
 //}
 
 Player::Player(const LoaderParams* pParams) :SDLGameObject(pParams)
 {
-
+	stop = false;
 }
 
 void Player::draw()
@@ -22,17 +23,34 @@ void Player::draw()
 
 void Player::update()
 {
-	/*m_x -= 1;
-	m_currentFrame = int(((SDL_GetTicks() / 100) % 6));*/
+	Vector2D* pMousePos = TheInputHandler::Instance()->getMousePosition();
 
-	//m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
-	//m_acceleration.setX(1);
-	//SDLGameObject::update();
+	if (pMousePos->getX() < (m_position.getX() + m_width) &&
+		pMousePos->getX() > m_position.getX() &&
+		pMousePos->getY() < (m_position.getY() + m_height) &&
+		pMousePos->getY() > m_position.getY())
+	{
+			if (TheInputHandler::Instance()->getMouseButtonState(LEFT) &&
+				m_bReleased) {
+				m_currentFrame = MOUSE_OVER;
+				//m_callback(); // call our callback function
+				m_bReleased = false;
+			}
+			else if (!TheInputHandler::Instance()->getMouseButtonState(LEFT))
+			{
+				m_bReleased = true;
+				m_currentFrame = MOUSE_OVER;
+			}
+	}
+	else
+	{
+		m_currentFrame = MOUSE_OUT;
+	}
 
 	m_velocity.setX(0);
 	m_velocity.setY(0);
 	handleInput(); // add our function
-	m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
+	//m_currentFrame =0;
 	SDLGameObject::update();
 
 }
@@ -44,39 +62,15 @@ void Player::clean()
 
 void Player::handleInput()
 {
-	//if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT))
-	//{
-	//	m_velocity.setX(2);
-	//}
-	//if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT))
-	//{
-	//	m_velocity.setX(-2);
-	//}
-	//if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_UP))
-	//{
-	//	m_velocity.setY(-2);
-	//}
-	//if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN))
-	//{
-	//	m_velocity.setY(2);
-	//}
 
-	//if (TheInputHandler::Instance()->getMouseButtonState(LEFT))
-	//{
-	//	m_velocity.setX(1);
+	if (TheInputHandler::Instance()->getMouseButtonState(RIGHT))
+	{
+		
+	}
 
-	//	Vector2D* vec = TheInputHandler::Instance()->getMousePosition();
-	//	m_velocity = (*vec - m_position) / 100;
-	//}
-
-	//if (TheInputHandler::Instance()->MouseMove())
-	//{
-
-	//}
-
-}
-
-void Player::mouseMove()
-{
-
+	if (TheInputHandler::Instance()->getMouseButtonState(LEFT))
+	{
+		stop = true;
+		m_currentFrame = 1;
+	}
 }

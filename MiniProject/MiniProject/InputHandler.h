@@ -1,8 +1,7 @@
 #pragma once
 #include <vector>
-#include <SDL.h>
+#include "SDL.h"
 #include "Vector2D.h"
-#include "GameObject.h"
 
 
 enum mouse_buttons
@@ -38,19 +37,9 @@ public:
 	std::vector<bool> m_mouseButtonStates;
 
 	// mouse motion event					
-	Vector2D * m_mousePosition;
+	Vector2D* m_mousePosition;
 
-	Vector2D * m_objectPosition;
-
-
-
-
-	bool MouseMove(SDL_MouseButtonEvent move);
-
-	std::vector<GameObject*> object;
-
-
-
+	void reset();
 
 private:
 	InputHandler();

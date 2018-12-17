@@ -37,7 +37,6 @@ void SDLGameObject::update()
 	/*m_x += 1;*/
 	m_velocity += m_acceleration;
 	m_position += m_velocity;
-
 }
 
 void SDLGameObject::clean()

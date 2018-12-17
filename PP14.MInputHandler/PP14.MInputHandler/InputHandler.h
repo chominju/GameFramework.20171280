@@ -39,6 +39,11 @@ public:
 	// mouse motion event					
 	Vector2D* m_mousePosition;
 
+	bool fireCheck;
+
+	bool oneFire();
+
+	void setFire();
 
 private:
 	InputHandler();

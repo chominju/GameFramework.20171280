@@ -2,6 +2,8 @@
 //#include <SDL.h>
 #include "SDLGameObject.h"
 #include "LoaderParams.h"
+#include <vector>
+#include "TextureManager.h"
 
 class Player : public SDLGameObject
 
@@ -12,6 +14,11 @@ public:
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
+
+	std::vector<GameObject*> m_gameObjects;
+
+	SDL_Renderer* m_pRenderer2;
+
 
 private:
 	void handleInput();

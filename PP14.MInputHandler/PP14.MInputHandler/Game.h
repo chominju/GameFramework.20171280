@@ -4,6 +4,7 @@
 #include "TextureManager.h"
 #include "Player.h"
 #include "GameObject.h"
+#include "Fire.h"
 
 
 class Game
@@ -20,13 +21,15 @@ private:
 	//Player m_player;
 
 	SDL_Window * m_pWindow;
-	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
 
 	int m_currentFrame;
+	SDL_Renderer* m_pRenderer;
 	TextureManager m_textureManager;
 
 	std::vector<GameObject*> m_gameObjects;
+
+	Fire *ball;
 
 	//GameObject* m_go;
 	//GameObject* m_player;
@@ -47,6 +50,10 @@ public:
 	void clean();
 	bool running() { return m_bRunning; }
 	void quit();
+
+	bool fireCheck();
+	void fireOn();
+	bool fire = false;
 
 	SDL_Renderer* getRenderer() const { return m_pRenderer; }
 

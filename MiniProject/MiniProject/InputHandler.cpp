@@ -1,12 +1,11 @@
 #include "InputHandler.h"
 #include "Game.h"
 
-
 InputHandler* InputHandler::s_pInstance = 0;
 
-bool InputHandler::MouseMove(SDL_MouseButtonEvent move)
+void InputHandler::reset()
 {
-	return false;
+	//????????
 }
 
 InputHandler::InputHandler()
@@ -56,25 +55,7 @@ void InputHandler::update()
 		{
 			if (event.button.button == SDL_BUTTON_LEFT)
 			{
-				object = TheGame::Instance()->getGameObject();
-			
-				m_objectPosition = TheGame::Instance()->getObjcetPosition();
-				for (std::vector<GameObject*>::size_type i = 0;  i != object.size(); i++)
-				{
-					
-					if ((m_objectPosition->getX() <= m_mousePosition->getX())&& (m_mousePosition->getX() < m_objectPosition->getX()+26)) // 대상의 x값 < 마우스 x값 < 대상의 x값 +26
-					{
-						if ((m_objectPosition->getY() <= m_mousePosition->getY()) && (m_mousePosition->getY() < m_objectPosition->getY() + 26)) // 대상의 y값 < 마우스 y값 < 대상의 y값 +26
-						{
-							/*object[i]->clean();*/
-							/*object[i]->draw();*/
-			
-						}
-					}
-					//if(m_mousePosition->getX)
-					//object[i]->draw(/*m_pRenderer*/);
-				}
-
+				m_mouseButtonStates[LEFT] = true;
 			}
 			if (event.button.button == SDL_BUTTON_MIDDLE)
 			{
@@ -103,7 +84,7 @@ void InputHandler::update()
 			}
 		}
 
-		
+
 
 	}
 }

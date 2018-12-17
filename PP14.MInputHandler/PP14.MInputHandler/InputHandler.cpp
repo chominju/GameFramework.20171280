@@ -5,6 +5,8 @@ InputHandler* InputHandler::s_pInstance = 0;
 
 InputHandler::InputHandler()
 {
+	fireCheck = true;
+
 	m_mousePosition = new Vector2D(0, 0);
 	for (int i = 0; i < 3; i++)
 	{
@@ -32,6 +34,7 @@ void InputHandler::update()
 		if (event.type == SDL_KEYUP)
 		{
 			m_keystates = SDL_GetKeyboardState(0);
+			fireCheck = true;
 		}
 
 		if (event.type == SDL_KEYDOWN)
@@ -107,4 +110,15 @@ bool InputHandler::getMouseButtonState(int buttonNumber)
 Vector2D*  InputHandler::getMousePosition()
 {
 	return m_mousePosition;
+}
+
+
+bool InputHandler::oneFire()
+{
+	return fireCheck;
+}
+
+void InputHandler::setFire()
+{
+	fireCheck = false;
 }
